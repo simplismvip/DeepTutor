@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -11,9 +10,10 @@ import {
   type ReactNode,
 } from "react";
 import { useAppShell } from "@/context/AppShellContext";
-import { BookText, PanelLeftClose, PanelLeftOpen } from "lucide-react";
+import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { BrandGlyph } from "@/components/common/BrandIcon";
+import { BrandWordmark } from "@/components/common/BrandWordmark";
+import { APP_NAME } from "@/lib/brand";
 import OrganizedSessionList from "@/components/courses/OrganizedSessionList";
 import SessionList from "@/components/SessionList";
 import { useSidebarDrawer } from "@/components/layout/AppShell";
@@ -34,9 +34,6 @@ import {
   readSessionOrder,
   writeSessionOrder,
 } from "@/lib/sidebar-layout";
-
-const GITHUB_REPO_URL = "https://github.com/HKUDS/DeepTutor";
-const DOCS_URL = "https://deeptutor.info/";
 
 interface SidebarShellProps {
   sessions?: SessionSummary[];
@@ -166,20 +163,14 @@ export function SidebarShell({
   if (collapsed) {
     return (
       <aside className="group/sb relative flex h-dvh w-[60px] shrink-0 flex-col items-center bg-[var(--secondary)] py-3 transition-all duration-200">
-        {/* Header: logo + collapse toggle (toggle replaces logo on hover) */}
+        {/* Header: wordmark + collapse toggle (toggle replaces mark on hover) */}
         <div className="relative mb-2 flex h-9 w-9 items-center justify-center">
           <Link
             href="/"
-            aria-label="DeepTutor"
+            aria-label={APP_NAME}
             className="flex items-center justify-center transition-opacity duration-150 group-hover/sb:opacity-0"
           >
-            <Image
-              src="/logo.png"
-              alt="DeepTutor"
-              width={22}
-              height={22}
-              className="h-[22px] w-[22px] rounded-md"
-            />
+            <BrandWordmark compact className="text-[22px] leading-none" />
           </Link>
           <button
             onClick={() => setCollapsed(false)}
@@ -220,35 +211,6 @@ export function SidebarShell({
             );
           })}
           {renderedFooter}
-          <a
-            href={DOCS_URL}
-            target="_blank"
-            rel="noreferrer noopener"
-            title={t("Docs") as string}
-            aria-label={t("Docs") as string}
-            className="mt-1 flex h-9 w-9 items-center justify-center rounded-xl text-[var(--muted-foreground)]/70 transition-colors hover:bg-[var(--background)]/50 hover:text-[var(--foreground)]"
-          >
-            <BookText
-              size={15}
-              strokeWidth={1.8}
-              className="text-blue-600 dark:text-blue-400"
-            />
-          </a>
-          <a
-            href={GITHUB_REPO_URL}
-            target="_blank"
-            rel="noreferrer noopener"
-            title="GitHub"
-            aria-label="GitHub"
-            className="flex h-9 w-9 items-center justify-center rounded-xl text-[var(--muted-foreground)]/70 transition-colors hover:bg-[var(--background)]/50 hover:text-[var(--foreground)]"
-          >
-            <BrandGlyph
-              namespace="mcp"
-              id="github"
-              size={15}
-              className="text-[#181717] dark:text-white"
-            />
-          </a>
           <VersionBadge collapsed />
         </div>
       </aside>
@@ -258,24 +220,10 @@ export function SidebarShell({
   /* ---- Expanded state ---- */
   return (
     <aside className="flex w-[220px] h-dvh shrink-0 flex-col bg-[var(--secondary)] transition-all duration-200">
-      {/* Header: logo + collapse toggle */}
+      {/* Header: wordmark + collapse toggle */}
       <div className="flex h-14 items-center justify-between px-4">
-        <Link href="/" className="group flex items-center gap-1.5">
-          <Image
-            src="/logo.png"
-            alt="DeepTutor"
-            width={22}
-            height={22}
-            className="h-[22px] w-[22px] transition-transform duration-200 group-hover:scale-105"
-          />
-          <Image
-            src="/banner.png"
-            alt="DeepTutor"
-            width={897}
-            height={236}
-            priority
-            className="h-[22px] w-auto transition-transform duration-200 group-hover:scale-105"
-          />
+        <Link href="/" className="group flex items-center">
+          <BrandWordmark className="text-[22px] leading-none transition-transform duration-200 group-hover:scale-105" />
         </Link>
         {/* The rail is a desktop affordance; in the drawer the scrim and the
             top-bar toggle already own "make this go away". */}
@@ -378,38 +326,7 @@ export function SidebarShell({
           );
         })}
         {renderedFooter}
-        <div className="mt-0.5 flex items-center gap-0.5">
-          <VersionBadge />
-          <a
-            href={DOCS_URL}
-            target="_blank"
-            rel="noreferrer noopener"
-            title={t("Docs") as string}
-            aria-label={t("Docs") as string}
-            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-[var(--muted-foreground)]/55 transition-colors hover:bg-[var(--background)]/50 hover:text-[var(--muted-foreground)]"
-          >
-            <BookText
-              size={15}
-              strokeWidth={1.9}
-              className="text-blue-600 dark:text-blue-400"
-            />
-          </a>
-          <a
-            href={GITHUB_REPO_URL}
-            target="_blank"
-            rel="noreferrer noopener"
-            title="GitHub"
-            aria-label="GitHub"
-            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-[var(--muted-foreground)]/55 transition-colors hover:bg-[var(--background)]/50 hover:text-[var(--muted-foreground)]"
-          >
-            <BrandGlyph
-              namespace="mcp"
-              id="github"
-              size={15}
-              className="text-[#181717] dark:text-white"
-            />
-          </a>
-        </div>
+        <VersionBadge />
       </div>
     </aside>
   );

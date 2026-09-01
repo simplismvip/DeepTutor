@@ -6,10 +6,8 @@ import {
   Check,
   CircleAlert,
   Download,
-  Github,
   RefreshCw,
   RotateCw,
-  ShieldCheck,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -364,21 +362,6 @@ export default function AboutSettingsPage() {
           </div>
         )}
 
-        {status && !status.installation.automatic_update && (
-          <div className="border-t border-[var(--border)]/50 py-4">
-            <div className="mb-2 flex items-center gap-2 text-[12.5px] font-medium text-[var(--foreground)]">
-              <ShieldCheck className="h-4 w-4 text-[var(--muted-foreground)]" />
-              {t("Managed by your installation")}
-            </div>
-            <p className="mb-3 text-[12.5px] leading-relaxed text-[var(--muted-foreground)]">
-              {t(status.installation.reason)}
-            </p>
-            <code className="block overflow-x-auto rounded-lg bg-[var(--accent)]/60 px-3 py-2 text-[11.5px] text-[var(--foreground)]">
-              {status.installation.command}
-            </code>
-          </div>
-        )}
-
         {job && (
           <div
             className="border-t border-[var(--border)]/50 py-4"
@@ -405,21 +388,6 @@ export default function AboutSettingsPage() {
         )}
       </SettingSection>
 
-      <SettingSection title={t("Project")}>
-        <ResourceRow
-          title={t("GitHub")}
-          description={t("Source code, issues, and contributions")}
-          href="https://github.com/HKUDS/DeepTutor"
-          icon={<Github className="h-4 w-4" />}
-        />
-        <ResourceRow
-          title={t("Documentation")}
-          description={t("Installation, configuration, and guides")}
-          href="https://docs.deeptutor.info"
-          icon={<ArrowUpRight className="h-4 w-4" />}
-        />
-      </SettingSection>
-
       <ConfirmDialog
         open={confirmOpen}
         title={t("Update and restart DeepTutor?")}
@@ -443,38 +411,5 @@ function CodeValue({ value }: { value: string }) {
     <code className="rounded-md bg-[var(--accent)]/60 px-2 py-1 text-[11.5px] tabular-nums text-[var(--foreground)]">
       {value}
     </code>
-  );
-}
-
-function ResourceRow({
-  title,
-  description,
-  href,
-  icon,
-}: {
-  title: string;
-  description: string;
-  href: string;
-  icon: React.ReactNode;
-}) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer noopener"
-      className="group flex items-center justify-between gap-5 border-t border-[var(--border)]/50 py-3.5 first:border-t-0"
-    >
-      <div>
-        <div className="text-[13.5px] font-medium text-[var(--foreground)]">
-          {title}
-        </div>
-        <p className="mt-1 text-[12px] text-[var(--muted-foreground)]">
-          {description}
-        </p>
-      </div>
-      <span className="text-[var(--muted-foreground)] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--foreground)]">
-        {icon}
-      </span>
-    </a>
   );
 }

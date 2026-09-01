@@ -123,7 +123,10 @@ function useHideAdminOnly(): boolean {
     let cancelled = false;
     fetchAuthStatus().then((authStatus) => {
       if (cancelled || !authStatus) return;
-      setHideAdminOnly(Boolean(authStatus.enabled) && !authStatus.is_admin);
+      setHideAdminOnly(
+        Boolean(authStatus.enabled) &&
+          !(authStatus.is_admin || authStatus.role === "admin"),
+      );
     });
     return () => {
       cancelled = true;

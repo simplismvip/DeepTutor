@@ -5,6 +5,7 @@ import { CheckCircle2, Loader2, Save, Server, Youtube } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import { SettingsPageHeader } from "@/components/settings/shared";
+import { useAuthStatus } from "@/hooks/useAuthStatus";
 import {
   getVideoLearningSettings,
   saveVideoLearningSettings,
@@ -20,6 +21,14 @@ const DEFAULTS: VideoLearningSettings = {
 };
 
 export default function VideoLearningSettingsPage() {
+  const { enabled, isAdmin, loading: authLoading } = useAuthStatus();
+  if (authLoading || (enabled && !isAdmin)) {
+    return null;
+  }
+  return <VideoLearningSettingsForm />;
+}
+
+function VideoLearningSettingsForm() {
   const { t } = useTranslation();
   const [settings, setSettings] = useState(DEFAULTS);
   const [loading, setLoading] = useState(true);

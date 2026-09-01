@@ -23,7 +23,7 @@ from deeptutor.services.llm.provider_core.openai_responses import (
 )
 from deeptutor.services.llm.request_compat import is_transient_transport_error
 
-DEFAULT_ORIGINATOR = "DeepTutor"
+DEFAULT_ORIGINATOR = "EduMind"
 
 
 class CodexHTTPError(RuntimeError):

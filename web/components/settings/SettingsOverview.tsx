@@ -173,8 +173,8 @@ export default function SettingsOverview() {
           onClick={() => {
             setPendingPrompt(
               tr({
-                zh: "帮我配置一下 DeepTutor，先看看现在缺什么。",
-                en: "Help me configure DeepTutor — start by checking what's missing.",
+                zh: "帮我配置一下 EduMind，先看看现在缺什么。",
+                en: "Help me configure EduMind — start by checking what's missing.",
               }),
             );
           }}

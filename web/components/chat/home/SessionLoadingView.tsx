@@ -56,16 +56,8 @@ export default function SessionLoadingView({
         </button>
       ) : null}
 
-      {/* Logo + spinner (or the failure mark) */}
+      {/* Spinner (or the failure mark) */}
       <div className="flex items-center gap-3">
-        <img
-          src="/logo_black.png"
-          alt="DeepTutor"
-          width={32}
-          height={32}
-          className="h-8 w-8 select-none"
-          draggable={false}
-        />
         {failed ? (
           <TriangleAlert className="h-5 w-5 text-[var(--destructive)]" />
         ) : (

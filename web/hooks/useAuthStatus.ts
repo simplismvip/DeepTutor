@@ -43,7 +43,7 @@ function loadAuthStatus(): Promise<AuthStatusState> {
       .then((status) => ({
         enabled: Boolean(status?.enabled),
         authenticated: Boolean(status?.authenticated),
-        isAdmin: status?.role === "admin",
+        isAdmin: Boolean(status?.is_admin) || status?.role === "admin",
         loading: false,
       }))
       .finally(() => {

@@ -110,8 +110,8 @@ const MODEL_CHILDREN: SettingsLeaf[] = [
     href: "/settings/models#task-models",
     label: { zh: "任务模型", en: "Task models" },
     blurb: {
-      zh: "DeepTutor 自己发起的调用使用的模型。",
-      en: "The model behind the calls DeepTutor makes on its own.",
+      zh: "EduMind 自己发起的调用使用的模型。",
+      en: "The model behind the calls EduMind makes on its own.",
     },
     icon: ListChecks,
     tile: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
@@ -253,7 +253,7 @@ const AGENT_CHILDREN: SettingsLeaf[] = [
     href: "/settings/agents#agent-claude-code",
     label: { zh: "Claude Code", en: "Claude Code" },
     blurb: {
-      zh: "DeepTutor 调用本机 Claude Code 时的模型、推理强度与运行参数。",
+      zh: "EduMind 调用本机 Claude Code 时的模型、推理强度与运行参数。",
       en: "Model, reasoning effort, and run params for the local Claude Code.",
     },
     // Brand glyph shares the lucide call signature (size/className).
@@ -266,7 +266,7 @@ const AGENT_CHILDREN: SettingsLeaf[] = [
     href: "/settings/agents#agent-codex",
     label: { zh: "Codex", en: "Codex" },
     blurb: {
-      zh: "DeepTutor 调用本机 Codex 时的模型、推理强度与运行参数。",
+      zh: "EduMind 调用本机 Codex 时的模型、推理强度与运行参数。",
       en: "Model, reasoning effort, and run params for the local Codex.",
     },
     icon: CodexGlyph as unknown as LucideIcon,
@@ -279,7 +279,7 @@ const AGENT_CHILDREN: SettingsLeaf[] = [
     href: "/settings/agents#agent-antigravity",
     label: { zh: "Antigravity CLI", en: "Antigravity CLI" },
     blurb: {
-      zh: "DeepTutor 调用本机 Antigravity CLI 时的模型与运行参数。",
+      zh: "EduMind 调用本机 Antigravity CLI 时的模型与运行参数。",
       en: "Model and run params for the local Antigravity CLI.",
     },
     icon: GeminiGlyph as unknown as LucideIcon,
@@ -291,7 +291,7 @@ const AGENT_CHILDREN: SettingsLeaf[] = [
     href: "/settings/agents#agent-kimi",
     label: { zh: "Kimi CLI", en: "Kimi CLI" },
     blurb: {
-      zh: "DeepTutor 调用本机 Kimi CLI 时的模型与运行参数。",
+      zh: "EduMind 调用本机 Kimi CLI 时的模型与运行参数。",
       en: "Model and run params for the local Kimi CLI.",
     },
     icon: KimiGlyph as unknown as LucideIcon,
@@ -303,7 +303,7 @@ const AGENT_CHILDREN: SettingsLeaf[] = [
     href: "/settings/agents#agent-opencode",
     label: { zh: "opencode", en: "opencode" },
     blurb: {
-      zh: "DeepTutor 调用本机 opencode 时的模型、推理强度与运行参数。",
+      zh: "EduMind 调用本机 opencode 时的模型、推理强度与运行参数。",
       en: "Model, reasoning effort, and run params for the local opencode.",
     },
     icon: OpencodeGlyph as unknown as LucideIcon,
@@ -315,7 +315,7 @@ const AGENT_CHILDREN: SettingsLeaf[] = [
     href: "/settings/agents#agent-mimo",
     label: { zh: "MiMo Code", en: "MiMo Code" },
     blurb: {
-      zh: "DeepTutor 调用本机 MiMo Code 时的模型、推理强度与运行参数。",
+      zh: "EduMind 调用本机 MiMo Code 时的模型、推理强度与运行参数。",
       en: "Model, reasoning effort, and run params for the local MiMo Code.",
     },
     icon: MimoGlyph as unknown as LucideIcon,
@@ -327,7 +327,7 @@ const AGENT_CHILDREN: SettingsLeaf[] = [
     href: "/settings/agents#agent-hermes",
     label: { zh: "Hermes Agent", en: "Hermes Agent" },
     blurb: {
-      zh: "DeepTutor 调用本机 Hermes Agent 时的模型、推理强度与运行参数。",
+      zh: "EduMind 调用本机 Hermes Agent 时的模型、推理强度与运行参数。",
       en: "Model, reasoning effort, and run params for the local Hermes Agent.",
     },
     icon: HermesGlyph as unknown as LucideIcon,
@@ -339,7 +339,7 @@ const AGENT_CHILDREN: SettingsLeaf[] = [
     href: "/settings/agents#agent-openclaw",
     label: { zh: "OpenClaw", en: "OpenClaw" },
     blurb: {
-      zh: "DeepTutor 通过 Gateway 或本地模式调用 OpenClaw 的运行参数。",
+      zh: "EduMind 通过 Gateway 或本地模式调用 OpenClaw 的运行参数。",
       en: "Gateway or local-mode run params for the local OpenClaw agent.",
     },
     icon: OpenClawGlyph as unknown as LucideIcon,
@@ -351,7 +351,7 @@ const AGENT_CHILDREN: SettingsLeaf[] = [
     href: "/settings/agents#agent-deepseek-harness",
     label: { zh: "DeepSeek Harness", en: "DeepSeek Harness" },
     blurb: {
-      zh: "DeepTutor 通过 Python SDK 或 headless CLI 调用 DeepSeek Harness。",
+      zh: "EduMind 通过 Python SDK 或 headless CLI 调用 DeepSeek Harness。",
       en: "Python SDK or headless CLI settings for DeepSeek Harness.",
     },
     icon: DeepSeekGlyph as unknown as LucideIcon,
